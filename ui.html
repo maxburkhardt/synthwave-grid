@@ -1,0 +1,31 @@
+<h2>Synthwave Grid</h2>
+<p>Number of lines: <input id="linecount" value="30"></p>
+<p>Width (px): <input id="width" value="1000"></p>
+<p>Height (px): <input id="height" value="300"></p>
+<p>Angle sweep (deg): <input id="angle" value="45"></p>
+<p>Horizontal growth: <input id="horzGrowth" value="0.3"></p>
+<button id="create">Create</button>
+<button id="cancel">Cancel</button>
+<script>
+
+document.getElementById('create').onclick = () => {
+  const lineCount = parseInt(document.getElementById('linecount').value, 10);
+  const width = parseInt(document.getElementById('width').value, 10);
+  const height = parseInt(document.getElementById('height').value, 10);
+  const angleSweep = parseInt(document.getElementById('angle').value, 10);
+  const horzGrowth = parseFloat(document.getElementById('horzGrowth').value, 10);
+  parent.postMessage({ pluginMessage: {
+    type: 'create-grid',
+    lineCount: lineCount,
+    width: width,
+    height: height,
+    angleSweep: angleSweep,
+    horzGrowth: horzGrowth,
+  } }, '*')
+}
+
+document.getElementById('cancel').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+
+</script>

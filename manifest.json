@@ -1,0 +1,7 @@
+{
+  "name": "Synthwave Grid",
+  "id": "982102784876549527",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html"
+}
